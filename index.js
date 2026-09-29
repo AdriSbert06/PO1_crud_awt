@@ -42,8 +42,8 @@ app.get("/", (req, res) => {
    <p>Aquest és un text <strong>amb estil</strong> i un enllaç:</p>
    `;
     const data = readData();
-    res.render("books", { user, data, htmlMessage })
-    //res.json(data.products);
+    //res.render("books", { user, data, htmlMessage })
+    res.json(data.products);
 
 });
 

@@ -13,13 +13,13 @@
     </header>
     <main>
         <section>
-            <h2>Llista de Productes</h2>
-            <ul class="product-list">
-                <% data.products.forEach(product => { %>
-                    <li class="product-item">
-                        <strong><%= product.name %></strong>
-                        <span>Categoria: <%= product.category %></span>
-                        <span>Preu: €<%= product.price %></span>
+            <h2>Llista de Llibres</h2>
+            <ul class="book-list">
+                <% data.books.forEach(book => { %>
+                    <li class="book-item">
+                        <strong><%= book.name %></strong>
+                        <span>Categoria: <%= book.category %></span>
+                        <span>Preu: €<%= book.price %></span>
                     </li>
                 <% }) %>
             </ul>
