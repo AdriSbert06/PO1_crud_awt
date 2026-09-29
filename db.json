@@ -1,0 +1,36 @@
+{
+    "books": [
+        {
+            "id": 1,
+            "name": "Los 7 hábitos de la gente altamente efectiva",
+            "author": "Stephen R. Covey",
+            "year": 1989
+        },
+        {
+            "id": 2,
+            "name": "Padre rico, padre pobre",
+            "author": "Robert Kiyosaki",
+            "year": 1997
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "name": "Camiseta",
+            "category": "Ropa",
+            "price": 19.99
+        },
+        {
+            "id": 2,
+            "name": "Pantalón",
+            "category": "Ropa",
+            "price": 39.99
+        },
+        {
+            "id": 3,
+            "name": "Zapatos",
+            "category": "Calzado",
+            "price": 59.99
+        }
+    ]
+}
