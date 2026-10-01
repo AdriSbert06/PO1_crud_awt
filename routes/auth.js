@@ -31,5 +31,12 @@ router.get("/logout", (req, res) => {
     res.render("logout", { })
 });
 
+router.get("/protected", (req, res) => {
+    const user = { name: "Adrià" }
+    const htmlMessage = `
+   <p>Aquest és un text <strong>amb estil</strong> i un enllaç:</p>
+   `;
+    res.render("protected", { })
+});
 
 export default router;
