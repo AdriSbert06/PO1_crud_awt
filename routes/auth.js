@@ -23,5 +23,13 @@ router.get("/register", (req, res) => {
     res.render("register", { })
 });
 
+router.get("/logout", (req, res) => {
+    const user = { name: "Adrià" }
+    const htmlMessage = `
+   <p>Aquest és un text <strong>amb estil</strong> i un enllaç:</p>
+   `;
+    res.render("logout", { })
+});
+
 
 export default router;

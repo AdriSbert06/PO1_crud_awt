@@ -9,7 +9,7 @@ import authRoutes from './routes/auth.js'
 //Creo l'objecte de l'aplicació
 const app = express();
 app.use(bodyParser.json())
-app.use('/auth', authRoutes)
+app.use('/', authRoutes)
 app.use('/books', booksRoutes)
 app.use('/products', productsRoutes)
 
