@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordinadors</title>
+</head>
+
+<body>
+
+    <h1>Ordinadors</h1>
+
+    <ul>
+        <% ordinadors.forEach(ordinador => { %>
+            <li>
+                <h2>
+                    <%= ordinador.marca %> <%= ordinador.model %>
+                </h2>
+
+                <p>
+                    <strong>Processador:</strong>
+                    <%= ordinador.processador %>
+                </p>
+
+                <p>
+                    <strong>Memòria RAM:</strong>
+                    <%= ordinador.memoriaRAM %>
+                </p>
+
+                <p>
+                    <strong>Emmagatzematge:</strong>
+                    <%= ordinador.emmagatzematge %>
+                </p>
+
+                <p>
+                    <strong>Preu:</strong>
+                    <%= ordinador.preu %> €
+                </p>
+
+                <p>
+                    <strong>Disponibilitat:</strong>
+
+                    <% if (ordinador.disponible) { %>
+                        Disponible
+                    <% } else { %>
+                        No disponible
+                    <% } %>
+                </p>
+
+                <hr>
+            </li>
+
+        <% }) %>
+    </ul>
+
+    <a href="/">Tornar</a>
+
+</body>
+
+</html>

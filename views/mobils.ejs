@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobils</title>
+</head>
+
+<body>
+
+    <h1>Mobils</h1>
+
+    <ul>
+        <% mobils.forEach(mobil => { %>
+            <li>
+                <h2>
+                    <%= mobil.marca %> <%= mobil.model %>
+                </h2>
+
+                <p>
+                    <strong>Processador:</strong>
+                    <%= mobil.processador %>
+                </p>
+
+                <p>
+                    <strong>Memòria RAM:</strong>
+                    <%= mobil.memoriaRAM %>
+                </p>
+
+                <p>
+                    <strong>Emmagatzematge:</strong>
+                    <%= mobil.emmagatzematge %>
+                </p>
+
+                <p>
+                    <strong>Preu:</strong>
+                    <%= mobil.preu %> €
+                </p>
+
+                <p>
+                    <strong>Disponibilitat:</strong>
+
+                    <% if (mobil.disponible) { %>
+                        Disponible
+                    <% } else { %>
+                        No disponible
+                    <% } %>
+                </p>
+
+                <hr>
+            </li>
+
+        <% }) %>
+    </ul>
+
+    <a href="/">Tornar</a>
+
+</body>
+
+</html>

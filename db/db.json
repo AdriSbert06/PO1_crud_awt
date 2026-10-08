@@ -1,0 +1,106 @@
+{
+    "ordinadors": [
+        {
+            "id": 1,
+            "marca": "Dell",
+            "model": "Inspiron 15",
+            "processador": "Intel Core i5",
+            "memoriaRAM": "16 GB",
+            "emmagatzematge": "512 GB SSD",
+            "preu": 749.99,
+            "disponible": true
+        },
+        {
+            "id": 2,
+            "marca": "HP",
+            "model": "Pavilion 14",
+            "processador": "Intel Core i7",
+            "memoriaRAM": "16 GB",
+            "emmagatzematge": "1 TB SSD",
+            "preu": 999.99,
+            "disponible": true
+        },
+        {
+            "id": 3,
+            "marca": "Lenovo",
+            "model": "IdeaPad 3",
+            "processador": "AMD Ryzen 5",
+            "memoriaRAM": "8 GB",
+            "emmagatzematge": "512 GB SSD",
+            "preu": 599.99,
+            "disponible": false
+        },
+        {
+            "id": 4,
+            "marca": "Apple",
+            "model": "MacBook Air",
+            "processador": "Apple M3",
+            "memoriaRAM": "16 GB",
+            "emmagatzematge": "512 GB SSD",
+            "preu": 1299.00,
+            "disponible": true
+        },
+        {
+            "id": 5,
+            "marca": "ASUS",
+            "model": "VivoBook 15",
+            "processador": "AMD Ryzen 7",
+            "memoriaRAM": "16 GB",
+            "emmagatzematge": "1 TB SSD",
+            "preu": 899.99,
+            "disponible": true
+        }
+    ],
+    "mobils": [
+        {
+            "id": 1,
+            "marca": "Apple",
+            "model": "iPhone 16",
+            "processador": "Apple A18",
+            "memoriaRAM": "8 GB",
+            "emmagatzematge": "128 GB",
+            "preu": 959.00,
+            "disponible": true
+        },
+        {
+            "id": 2,
+            "marca": "Samsung",
+            "model": "Galaxy S25",
+            "processador": "Snapdragon 8 Elite",
+            "memoriaRAM": "12 GB",
+            "emmagatzematge": "256 GB",
+            "preu": 909.00,
+            "disponible": true
+        },
+        {
+            "id": 3,
+            "marca": "Xiaomi",
+            "model": "Redmi Note 14",
+            "processador": "MediaTek Dimensity 7025",
+            "memoriaRAM": "8 GB",
+            "emmagatzematge": "256 GB",
+            "preu": 249.99,
+            "disponible": true
+        },
+        {
+            "id": 4,
+            "marca": "Google",
+            "model": "Pixel 9",
+            "processador": "Google Tensor G4",
+            "memoriaRAM": "12 GB",
+            "emmagatzematge": "128 GB",
+            "preu": 799.00,
+            "disponible": true
+        },
+        {
+            "id": 5,
+            "marca": "OnePlus",
+            "model": "OnePlus 13",
+            "processador": "Snapdragon 8 Elite",
+            "memoriaRAM": "12 GB",
+            "emmagatzematge": "256 GB",
+            "preu": 899.00,
+            "disponible": false
+        }
+    ]
+}

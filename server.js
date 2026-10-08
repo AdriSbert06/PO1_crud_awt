@@ -4,6 +4,10 @@ import { UserRepository } from "./user-repository.js";
 import { PORT, SECRET_JWT_KEY } from "./config.js";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
+import  ordinadors  from "./routes/ordinadors.js";
+import  mobils  from "./routes/mobils.js";
+
+
 
 const app = express();
 app.use(express.json());
@@ -88,6 +92,35 @@ app.post('/logout',(req,res)=>{
     .send('logout');
 });
 
+import fs from "fs";
+app.get('/ordinadors', (req, res) => {
+    const data = JSON.parse(fs.readFileSync("./db/db.json"));
+
+    res.render('ordinadors', {
+        ordinadors: data.ordinadors
+    });
+});
+
+
+
+app.use("/ordinadors", ordinadors);
+
+app.get('/mobils', (req, res) => {
+    const { user } = req.session;
+
+    if (!user) {
+        return res.status(401).send('Accés no autoritzat');
+    }
+
+    const data = JSON.parse(fs.readFileSync("./db/db.json"));
+
+    res.render('mobils', {
+        mobils: data.mobils,
+        user: user
+    });
+});
+
+app.use("/mobils", mobils);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
