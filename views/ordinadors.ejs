@@ -5,57 +5,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ordinadors</title>
+
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
 
-    <h1>Ordinadors</h1>
+    <main class="productes-llista">
 
-    <ul>
-        <% ordinadors.forEach(ordinador => { %>
-            <li>
-                <h2>
-                    <%= ordinador.marca %> <%= ordinador.model %>
-                </h2>
+        <h1>Ordinadors</h1>
 
-                <p>
-                    <strong>Processador:</strong>
-                    <%= ordinador.processador %>
-                </p>
+        <ul>
+            <% ordinadors.forEach(ordinador => { %>
 
-                <p>
-                    <strong>Memòria RAM:</strong>
-                    <%= ordinador.memoriaRAM %>
-                </p>
+                <li>
+                    <div class="producte-info">
 
-                <p>
-                    <strong>Emmagatzematge:</strong>
-                    <%= ordinador.emmagatzematge %>
-                </p>
+                        <h2>
+                            <%= ordinador.marca %> <%= ordinador.model %>
+                        </h2>
 
-                <p>
-                    <strong>Preu:</strong>
-                    <%= ordinador.preu %> €
-                </p>
+                        <p>
+                            <strong>Processador:</strong>
+                            <%= ordinador.processador %>
+                        </p>
 
-                <p>
-                    <strong>Disponibilitat:</strong>
+                        <p>
+                            <strong>Memòria RAM:</strong>
+                            <%= ordinador.memoriaRAM %>
+                        </p>
 
-                    <% if (ordinador.disponible) { %>
-                        Disponible
-                    <% } else { %>
-                        No disponible
-                    <% } %>
-                </p>
+                        <p>
+                            <strong>Emmagatzematge:</strong>
+                            <%= ordinador.emmagatzematge %>
+                        </p>
 
-                <hr>
-            </li>
+                        <p class="preu">
+                            <strong>Preu:</strong>
+                            <%= ordinador.preu %> €
+                        </p>
 
-        <% }) %>
-    </ul>
+                        <p>
+                            <strong>Disponibilitat:</strong>
 
-    <a href="/">Tornar</a>
+                            <% if (ordinador.disponible) { %>
+                                <span>Disponible</span>
+                            <% } else { %>
+                                <span>No disponible</span>
+                            <% } %>
+                        </p>
+
+                    </div>
+
+                    <div class="producte-accions">
+
+                        <a href="/ordinadors">Veure</a>
+
+                        <button type="button">
+                            Editar
+                        </button>
+
+                        <button type="button" class="btn-eliminar">
+                            Eliminar
+                        </button>
+
+                    </div>
+                </li>
+
+            <% }) %>
+        </ul>
+
+        <a href="/" class="tornar">Tornar</a>
+
+    </main>
 
 </body>
-
 </html>

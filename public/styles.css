@@ -1,0 +1,549 @@
+/* ==============================
+   1. ESTILOS GENERALES
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-fondo: #0f172a;
+    --color-tarjeta: #1e293b;
+    --color-primario: #3b82f6;
+    --color-primario-hover: #2563eb;
+    --color-texto: #f1f5f9;
+    --color-texto-secundario: #94a3b8;
+    --color-borde: #334155;
+    --color-error: #ef4444;
+    --color-exito: #22c55e;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* ==============================
+   2. CONTENEDORES
+============================== */
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+.form-container {
+    background: var(--color-tarjeta);
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border: 1px solid var(--color-borde);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* ==============================
+   3. TÍTULOS Y TEXTOS
+============================== */
+
+h1,
+h2,
+h3 {
+    color: var(--color-texto);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p {
+    color: var(--color-texto-secundario);
+    margin-bottom: 15px;
+}
+
+/* ==============================
+   4. FORMULARIOS
+============================== */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    color: var(--color-texto);
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background: #0f172a;
+    color: var(--color-texto);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--color-texto-secundario);
+}
+
+/* ==============================
+   5. BOTONES
+============================== */
+
+button {
+    padding: 12px 18px;
+    background: var(--color-primario);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: var(--color-primario-hover);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* ==============================
+   6. ENLACES
+============================== */
+
+a {
+    color: #60a5fa;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #93c5fd;
+    text-decoration: underline;
+}
+
+.form-container a {
+    display: inline-block;
+    margin-top: 15px;
+}
+
+/* ==============================
+   7. MENSAJES
+============================== */
+
+form span {
+    display: block;
+    min-height: 24px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.mensaje-error {
+    color: var(--color-error);
+}
+
+.mensaje-exito {
+    color: var(--color-exito);
+}
+
+/* ==============================
+   8. RESPONSIVE
+============================== */
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .form-container {
+        max-width: 100%;
+        padding: 24px;
+    }
+}
+
+/* ==============================
+   9. PÁGINA DE PRODUCTOS
+============================== */
+
+body:has(.productes) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.productes {
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    background: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.productes h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.productes ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.productes li a {
+    display: block;
+    padding: 16px 20px;
+    background: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    color: var(--color-texto);
+    font-size: 17px;
+    font-weight: bold;
+    transition: background 0.2s, border-color 0.2s,
+                transform 0.2s;
+}
+
+.productes li a:hover {
+    background: var(--color-primario);
+    border-color: var(--color-primario);
+    color: white;
+    text-decoration: none;
+    transform: translateX(5px);
+}
+
+/* Adaptación a móviles */
+@media (max-width: 600px) {
+    .productes {
+        padding: 25px 20px;
+    }
+
+    .productes h1 {
+        font-size: 26px;
+    }
+}
+
+/* ==============================
+   10. PÁGINAS DE ORDINADORS Y MÒBILS
+============================== */
+
+.productes-llista {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 25px;
+}
+
+.productes-llista h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+/* Llista de productes */
+
+.productes-llista ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* Targetes individuals */
+
+.productes-llista li {
+    background: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.productes-llista li:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primario);
+}
+
+/* Marca i model */
+
+.productes-llista h2 {
+    color: #60a5fa;
+    font-size: 22px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Informació del producte */
+
+.productes-llista p {
+    color: var(--color-texto-secundario);
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+}
+
+.productes-llista strong {
+    color: var(--color-texto);
+}
+
+/* Preu */
+
+.productes-llista p:nth-of-type(4) {
+    color: var(--color-exito);
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 18px;
+}
+
+/* Disponibilitat */
+
+.productes-llista p:last-of-type {
+    padding: 10px;
+    background: var(--color-fondo);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* Separador */
+
+.productes-llista hr {
+    display: none;
+}
+
+/* Enllaç per tornar */
+
+.tornar {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 22px;
+    background: var(--color-primario);
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.tornar:hover {
+    background: var(--color-primario-hover);
+    color: white;
+    text-decoration: none;
+}
+
+/* Adaptació a mòbils */
+
+@media (max-width: 600px) {
+    .productes-llista {
+        padding: 25px 15px;
+    }
+
+    .productes-llista h1 {
+        font-size: 28px;
+    }
+
+    .productes-llista ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==============================
+   LISTA DE ORDINADORS Y MÒBILS
+============================== */
+
+.productes-llista {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 25px;
+}
+
+.productes-llista h1 {
+    font-size: 32px;
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+/* Lista vertical */
+
+.productes-llista ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Cada producto */
+
+.productes-llista li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    background: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 22px 25px;
+
+    transition: border-color 0.2s;
+}
+
+.productes-llista li:hover {
+    border-color: var(--color-primario);
+}
+
+/* Información del producto */
+
+.producte-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.productes-llista h2 {
+    color: #60a5fa;
+    font-size: 21px;
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.productes-llista p {
+    color: var(--color-texto-secundario);
+    margin-bottom: 6px;
+    overflow-wrap: anywhere;
+}
+
+.productes-llista strong {
+    color: var(--color-texto);
+}
+
+/* Precio */
+
+.productes-llista .preu {
+    color: var(--color-exito);
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+/* Zona para los botones de la derecha */
+
+.producte-accions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-shrink: 0;
+    min-width: 120px;
+}
+
+.producte-accions button,
+.producte-accions a {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    text-align: center;
+    border: none;
+    border-radius: 7px;
+    background: var(--color-primario);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.producte-accions button:hover,
+.producte-accions a:hover {
+    background: var(--color-primario-hover);
+    color: white;
+    text-decoration: none;
+}
+
+/* Botón de eliminar, opcional */
+
+.producte-accions .btn-eliminar {
+    background: #dc2626;
+}
+
+.producte-accions .btn-eliminar:hover {
+    background: #b91c1c;
+}
+
+/* Botón para volver */
+
+.tornar {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    padding: 12px 22px;
+    background: var(--color-primario);
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.tornar:hover {
+    background: var(--color-primario-hover);
+    color: white;
+    text-decoration: none;
+}
+
+/* Diseño para móviles */
+
+@media (max-width: 600px) {
+    .productes-llista {
+        padding: 25px 15px;
+    }
+
+    .productes-llista li {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 18px;
+        padding: 20px;
+    }
+
+    .producte-accions {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .producte-accions button,
+    .producte-accions a {
+        flex: 1;
+        width: auto;
+    }
+}

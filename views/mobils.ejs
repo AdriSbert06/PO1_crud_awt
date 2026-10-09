@@ -4,57 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobils</title>
+    <title>Mòbils</title>
+
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
 
-    <h1>Mobils</h1>
+    <main class="productes-llista">
 
-    <ul>
-        <% mobils.forEach(mobil => { %>
-            <li>
-                <h2>
-                    <%= mobil.marca %> <%= mobil.model %>
-                </h2>
+        <h1>Mòbils</h1>
 
-                <p>
-                    <strong>Processador:</strong>
-                    <%= mobil.processador %>
-                </p>
+        <ul>
+            <% mobils.forEach(mobil => { %>
 
-                <p>
-                    <strong>Memòria RAM:</strong>
-                    <%= mobil.memoriaRAM %>
-                </p>
+                <li>
+                    <div class="producte-info">
 
-                <p>
-                    <strong>Emmagatzematge:</strong>
-                    <%= mobil.emmagatzematge %>
-                </p>
+                        <h2>
+                            <%= mobil.marca %> <%= mobil.model %>
+                        </h2>
 
-                <p>
-                    <strong>Preu:</strong>
-                    <%= mobil.preu %> €
-                </p>
+                        <p>
+                            <strong>Processador:</strong>
+                            <%= mobil.processador %>
+                        </p>
 
-                <p>
-                    <strong>Disponibilitat:</strong>
+                        <p>
+                            <strong>Memòria RAM:</strong>
+                            <%= mobil.memoriaRAM %>
+                        </p>
 
-                    <% if (mobil.disponible) { %>
-                        Disponible
-                    <% } else { %>
-                        No disponible
-                    <% } %>
-                </p>
+                        <p>
+                            <strong>Emmagatzematge:</strong>
+                            <%= mobil.emmagatzematge %>
+                        </p>
 
-                <hr>
-            </li>
+                        <p class="preu">
+                            <strong>Preu:</strong>
+                            <%= mobil.preu %> €
+                        </p>
 
-        <% }) %>
-    </ul>
+                        <p>
+                            <strong>Disponibilitat:</strong>
 
-    <a href="/">Tornar</a>
+                            <% if (mobil.disponible) { %>
+                                <span>Disponible</span>
+                            <% } else { %>
+                                <span>No disponible</span>
+                            <% } %>
+                        </p>
+
+                    </div>
+
+                    <div class="producte-accions">
+
+                        <a href="/mobils">Veure</a>
+
+                        <button type="button">
+                            Editar
+                        </button>
+
+                        <button type="button" class="btn-eliminar">
+                            Eliminar
+                        </button>
+
+                    </div>
+                </li>
+
+            <% }) %>
+        </ul>
+
+        <a href="/" class="tornar">Tornar</a>
+
+    </main>
 
 </body>
 
