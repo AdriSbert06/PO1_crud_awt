@@ -398,6 +398,29 @@ body:has(.productes) {
     margin-bottom: 25px;
 }
 
+.crear-producte {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.btn-crear {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 7px;
+    background: var(--color-primario);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-crear:hover {
+    background: var(--color-primario-hover);
+    color: white;
+    text-decoration: none;
+}
+
 /* Lista vertical */
 
 .productes-llista ul {

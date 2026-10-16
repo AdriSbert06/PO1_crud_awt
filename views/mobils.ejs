@@ -15,6 +15,8 @@
 
         <h1>Mòbils</h1>
 
+        <a href="/mobils/crear">Crear mòbil</a>
+
         <ul>
             <% mobils.forEach(mobil => { %>
 
@@ -59,16 +61,13 @@
 
                     <div class="producte-accions">
 
-                        <a href="/mobils">Veure</a>
-
-                        <button type="button">
+                        <a href="/mobils/<%= mobil.id %>/edit">
                             Editar
-                        </button>
+                        </a>
 
-                        <button type="button" class="btn-eliminar">
-                            Eliminar
-                        </button>
-
+                        <form action="/mobils/<%= mobil.id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn-eliminar">Eliminar</button>
+                        </form>
                     </div>
                 </li>
 

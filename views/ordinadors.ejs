@@ -15,6 +15,10 @@
 
         <h1>Ordinadors</h1>
 
+        <div class="crear-producte">
+            <a href="/ordinadors/crear" class="btn-crear">Crear ordinador</a>
+        </div>
+
         <ul>
             <% ordinadors.forEach(ordinador => { %>
 
@@ -59,16 +63,13 @@
 
                     <div class="producte-accions">
 
-                        <a href="/ordinadors">Veure</a>
-
-                        <button type="button">
+                        <a href="/ordinadors/<%= ordinador.id %>/edit">
                             Editar
-                        </button>
+                        </a>
 
-                        <button type="button" class="btn-eliminar">
-                            Eliminar
-                        </button>
-
+                        <form action="/ordinadors/<%= ordinador.id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn-eliminar">Eliminar</button>
+                        </form>
                     </div>
                 </li>
 

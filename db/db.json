@@ -2,13 +2,13 @@
     "ordinadors": [
         {
             "id": 1,
-            "marca": "Dell",
+            "marca": "Dell max",
             "model": "Inspiron 15",
             "processador": "Intel Core i5",
             "memoriaRAM": "16 GB",
             "emmagatzematge": "512 GB SSD",
-            "preu": 749.99,
-            "disponible": true
+            "preu": 750.99,
+            "disponible": false
         },
         {
             "id": 2,
@@ -37,7 +37,7 @@
             "processador": "Apple M3",
             "memoriaRAM": "16 GB",
             "emmagatzematge": "512 GB SSD",
-            "preu": 1299.00,
+            "preu": 1300,
             "disponible": true
         },
         {
@@ -49,17 +49,27 @@
             "emmagatzematge": "1 TB SSD",
             "preu": 899.99,
             "disponible": true
+        },
+        {
+            "id": 6,
+            "marca": "qwer sfgrs",
+            "model": "aaa",
+            "processador": "Intel Core i5",
+            "memoriaRAM": "16 GB",
+            "emmagatzematge": "1 TB SSD",
+            "preu": 99.99,
+            "disponible": true
         }
     ],
     "mobils": [
         {
             "id": 1,
             "marca": "Apple",
-            "model": "iPhone 16",
+            "model": "iPhone 16 Pro Max",
             "processador": "Apple A18",
             "memoriaRAM": "8 GB",
             "emmagatzematge": "128 GB",
-            "preu": 959.00,
+            "preu": 960,
             "disponible": true
         },
         {
@@ -69,7 +79,7 @@
             "processador": "Snapdragon 8 Elite",
             "memoriaRAM": "12 GB",
             "emmagatzematge": "256 GB",
-            "preu": 909.00,
+            "preu": 909,
             "disponible": true
         },
         {
@@ -79,8 +89,8 @@
             "processador": "MediaTek Dimensity 7025",
             "memoriaRAM": "8 GB",
             "emmagatzematge": "256 GB",
-            "preu": 249.99,
-            "disponible": true
+            "preu": "250",
+            "disponible": "true"
         },
         {
             "id": 4,
@@ -89,7 +99,7 @@
             "processador": "Google Tensor G4",
             "memoriaRAM": "12 GB",
             "emmagatzematge": "128 GB",
-            "preu": 799.00,
+            "preu": 799,
             "disponible": true
         },
         {
@@ -99,7 +109,7 @@
             "processador": "Snapdragon 8 Elite",
             "memoriaRAM": "12 GB",
             "emmagatzematge": "256 GB",
-            "preu": 899.00,
+            "preu": 899,
             "disponible": false
         }
     ]

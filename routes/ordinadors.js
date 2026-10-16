@@ -1,101 +1,108 @@
-import express from "express";
-import fs from "fs"; //treballar amb arxius
-import bodyParser from "body-parser"; //Ho afegim per entendre que estem rebent un json des de la petició post.
+import express from 'express';
+import fs from 'fs';
 
 const router = express.Router();
 
-const readData = () => {
-    try {
-        const data = fs.readFileSync("./db/db.json");
-        //console.log(data);
-        //console.log(JSON.parse(data));
-        return JSON.parse(data)
+const readData = () => JSON.parse(fs.readFileSync('./db/db.json'));
+const writeData = (data) => fs.writeFileSync('./db/db.json', JSON.stringify(data));
 
-    } catch (error) {
-        console.log(error);
-    }
-};
-//Funció per escriure informació
-const writeData = (data) => {
-    try {
-        fs.writeFileSync("./db/db.json", JSON.stringify(data));
-
-    } catch (error) {
-        console.log(error);
-    }
-}
-//Funció per llegir la informació
-//readData();
 
 router.get("/", (req, res) => {
-    const user = { name: "Adria" }
-    const htmlMessage = `
-   <p>Aquest és un text <strong>amb estil</strong> i un enllaç:</p>
-   <a href="https://www.example.com">Visita Example</a>`;
     const data = readData();
-    res.render("ordinadors", { user, data, htmlMessage })
-    //res.json(data.products);
-
+    res.render("ordinadors", { ordinadors: data.ordinadors });
 });
 
-//Creem un endpoint per obtenir tots els llibres
-router.get("/", (req, res) => {
+router.get("/crear", (req, res) => {
+    res.render("crear_ordinadors");
+});
+
+router.get("/:id/edit", (req, res) => {
     const data = readData();
-    res.json(data.ordinadors);
-})
+    const ordinador = data.ordinadors.find(b => b.id === parseInt(req.params.id));
+    if (!ordinador) return res.status(404).send("ordinador not found");
+    res.render("edit_ordinadors", { ordinador });
+});
+
 //Creem un endpoint per obtenir un llibre per un id
 router.get("/:id", (req, res) => {
-    const data = readData();
+    const data=readData();
     //Extraiem l'id de l'url recordem que req es un objecte tipus requets
     // que conté l'atribut params i el podem consultar
-    const id = parseInt(req.params.id);
-    const ordinador = data.ordinadors.find((ordinador) => ordinador.id === id);
+    const id=parseInt(req.params.id);
+    const ordinador=data.ordinadors.find((ordinador)=>ordinador.id===id);
     res.json(ordinador);
 })
 
-//Creem un endpoint del tipus post per afegir un llibre
 
+//Creem un endpoint del tipus post per afegir un llibre
 router.post("/", (req, res) => {
     const data = readData();
-    const body = req.body;
-    //todo lo que viene en ...body se agrega al nuevo libro
+    const preu = Number(req.body.preu);
+    if (!Number.isFinite(preu) || preu < 0) {
+        return res.status(400).send("preu not valid");
+    }
+
     const newOrdinador = {
-        id: data.ordinadors.length + 1,
-        ...body,
+        id: Math.max(0, ...data.ordinadors.map((ordinador) => ordinador.id)) + 1,
+        marca: req.body.marca,
+        model: req.body.model,
+        processador: req.body.processador,
+        memoriaRAM: req.body.memoriaRAM,
+        emmagatzematge: req.body.emmagatzematge,
+        preu,
+        disponible: req.body.disponible === "true" || req.body.disponible === true,
     };
     data.ordinadors.push(newOrdinador);
     writeData(data);
-    res.json(newOrdinador);
+    if (req.get("Accept")?.includes("text/html")) {
+        return res.redirect(303, "/ordinadors");
+    }
+    res.status(201).json(newOrdinador);
 });
+
 
 //Creem un endpoint per modificar un llibre
-
-
 router.put("/:id", (req, res) => {
     const data = readData();
-    const body = req.body;
+    const body = { ...req.body };
     const id = parseInt(req.params.id);
-    const ordinadorsIndex = data.ordinadors.findIndex((ordinador) => ordinador.id === id);
-    data.ordinadors[ordinadorsIndex] = {
-        ...data.ordinadors[ordinadorsIndex],
-        ...body,
+    const ordinadorIndex = data.ordinadors.findIndex((ordinador) => ordinador.id === id);
+    if (ordinadorIndex === -1) return res.status(404).send("ordinador not found");
+
+    if (body.preu !== undefined) {
+        body.preu = Number(body.preu);
+        if (!Number.isFinite(body.preu) || body.preu < 0) {
+            return res.status(400).send("preu not valid");
+        }
+    }
+    if (body.disponible !== undefined) {
+        body.disponible = body.disponible === "true" || body.disponible === true;
+    }
+
+    data.ordinadors[ordinadorIndex] = {
+      ...data.ordinadors[ordinadorIndex],
+      ...body,
     };
     writeData(data);
-    res.json({ message: "PC updated successfully" });
+    // A form arrives as POST (method-override turns it into PUT) -> go back to the list.
+    // Postman sends a real PUT -> JSON. Only ONE response is allowed per request.
+    if (req.originalMethod === "POST") return res.redirect(303, "/ordinadors");
+    res.json({ message: "ordinador updated successfully" });
 });
+
 
 //Creem un endpoint per eliminar un llibre
 router.delete("/:id", (req, res) => {
     const data = readData();
     const id = parseInt(req.params.id);
-    const ordinadorsIndex = data.ordinadors.findIndex((ordinador) => ordinador.id === id);
-    //splice esborra a part de ordinadorsIndex, el número de elements 
+    const ordinadorIndex = data.ordinadors.findIndex((ordinador) => ordinador.id === id);
+    if (ordinadorIndex === -1) return res.status(404).send("ordinador not found");
+    //splice esborra a partir de ordinadorIndex, el número de elements
     // que li indiqui al segon argument, en aquest cas 1
-    data.ordinadors.splice(ordinadorsIndex, 1);
+    data.ordinadors.splice(ordinadorIndex, 1);
     writeData(data);
-    res.json({ message: "PC deleted successfully" });
+    if (req.originalMethod === "POST") return res.redirect("/ordinadors");
+    res.json({ message: "ordinador deleted successfully" });
 });
-
-router.use(express.static("public")); //carpeta publica pel css
 
 export default router;

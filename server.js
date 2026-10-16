@@ -19,7 +19,7 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'ejs'); // Motor de plantilles
 app.set('views', './views'); // Ubicació de les plantilles
 
-
+//Middleware
 app.use((req,res,next )=>{
     const token = req.cookies.access_token
     req.session = {user: null}
@@ -93,16 +93,6 @@ app.post('/logout',(req,res)=>{
 });
 
 import fs from "fs";
-app.get('/ordinadors', (req, res) => {
-    const data = JSON.parse(fs.readFileSync("./db/db.json"));
-
-    res.render('ordinadors', {
-        ordinadors: data.ordinadors
-    });
-});
-
-
-
 app.use("/ordinadors", ordinadors);
 
 app.get('/mobils', (req, res) => {
