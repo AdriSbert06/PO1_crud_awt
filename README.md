@@ -61,10 +61,6 @@ PO1_crud_awt/
 
 # Captures del CRUD
 
-*(Inserir captura aquí)*
-
-![Login](capturesg
-
 
 # Crear un producte
 
@@ -72,15 +68,17 @@ L'aplicació permet afegir nous dispositius mitjançant un formulari.
 
 Les dades principals són:
 
-- Nom
-- Categoria
+- Marca
+- Model
+- Processador
+- Memòria RAM
+- Emmagatzematge
 - Preu
+- Disponibilitat
 
 ## Captura de pantalla del formulari de creació
 
-*(Inserir captura aquí)*
-
-captures/crear-producte.png
+![captures/edit_po1.png]
 
 ---
 
@@ -94,11 +92,7 @@ Cada producte mostra:
 - Categoria
 - Preu
 
-## Captura de pantalla de la consulta
-
-*(Inserir captura aquí)*
-
-![Consulta Productes](captures/consulta-productes producte
+## Editar un producte
 
 L'usuari pot modificar la informació dels dispositius existents.
 
@@ -108,9 +102,7 @@ Les modificacions es processen mitjançant una petició **PUT**.
 
 ## Captura de pantalla de l'edició
 
-*(Inserir captura aquí)*
-
-![Editar Producteroducte.png
+![captures/edit_po1.png]
 
 ---
 
@@ -122,9 +114,4 @@ Aquesta operació utilitza una petició **DELETE** de l'API REST.
 
 ## Captura de pantalla de l'eliminació
 
-*(Inserir captura aquí)*
-
-![Eliminar Producte](captures/eliminar-productT
-
-L'aplicació implementa les següents rutes REST:
-
+![captures/delete_po1.png]
