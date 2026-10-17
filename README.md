@@ -62,6 +62,19 @@ PO1_crud_awt/
 # Captures del CRUD
 
 
+# Consultar productes
+
+Tots els productes es mostren en una llista dinàmica generada amb EJS.
+
+Es mostren 2 tipus de productes, **ordinadors** i **mòbils**.
+
+Depenent de la secció (ordinadors/mòbils), es mostren els productes propis.
+
+## Captura de pantalla de la tots els productes de la secció
+![read](captures/read_p01.png)
+
+---
+
 # Crear un producte
 
 L'aplicació permet afegir nous dispositius mitjançant un formulari.
@@ -78,19 +91,9 @@ Les dades principals són:
 
 ## Captura de pantalla del formulari de creació
 
-![captures/edit_po1.png]
+![crear](captures/create_po1.png)
 
 ---
-
-# Consultar productes
-
-Tots els productes es mostren en una llista dinàmica generada amb EJS.
-
-Cada producte mostra:
-
-- Nom
-- Categoria
-- Preu
 
 ## Editar un producte
 
@@ -102,7 +105,7 @@ Les modificacions es processen mitjançant una petició **PUT**.
 
 ## Captura de pantalla de l'edició
 
-![captures/edit_po1.png]
+![editar](captures/edit_po1.png)
 
 ---
 
@@ -114,4 +117,4 @@ Aquesta operació utilitza una petició **DELETE** de l'API REST.
 
 ## Captura de pantalla de l'eliminació
 
-![captures/delete_po1.png]
+![eliminar](captures/eliminar_p01.png)
