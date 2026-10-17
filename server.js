@@ -19,7 +19,8 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'ejs'); // Motor de plantilles
 app.set('views', './views'); // Ubicació de les plantilles
 
-//Middleware
+//Middleware -> Verifica el token JWT de la cookie per identificar a l'usuari.
+
 app.use((req,res,next )=>{
     const token = req.cookies.access_token
     req.session = {user: null}
@@ -53,8 +54,8 @@ app.post('/login', async (req,res)=>{
             console.log("llego aqui 2")
         res
         .cookie('access_token',token,{
-            httpOnly:true, //la cookie solo se puede acceder en el servidor, no podrem fer un document.cookie
-            //secure:true, //la cookie solo funciona en https
+            httpOnly:true, //la cookie només  es pot accedir en el servidr, no podrem fer un document.cookie
+            //secure:true, //la cookie només funciona en https
             secure: process.env.NODE_ENV==='production',
             sameSite:'strict', //la cookie es pot accedir dins del domini
             maxAge:1000*60*60 //la cookie te un temps de validesa d'una hora
@@ -67,14 +68,12 @@ app.post('/login', async (req,res)=>{
 });
 
 app.post('/register', async (req,res)=>{
-    //aqui el body es el cuerpo de la petición
     const {username,password}=req.body
     console.log(req.body)
     try{
         const id= await UserRepository.create({username,password});
         res.send({id})
     }catch(error){
-        //No es buena idea mandar el error del repositorio
         res.status(400).send(error.message)
     }
 });

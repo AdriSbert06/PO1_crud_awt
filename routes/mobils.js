@@ -23,7 +23,7 @@ router.get("/:id/edit", (req, res) => {
     res.render("edit_mobils", { mobil });
 });
 
-//Creem un endpoint per obtenir un llibre per un id
+//Creem un endpoint per obtenir un mòbil per un id
 router.get("/:id", (req, res) => {
     const data=readData();
     //Extraiem l'id de l'url recordem que req es un objecte tipus requets
@@ -34,7 +34,7 @@ router.get("/:id", (req, res) => {
 })
 
 
-//Creem un endpoint del tipus post per afegir un llibre
+//Creem un endpoint del tipus post per afegir un mòbil
 router.post("/", (req, res) => {
     const data = readData();
     const preu = Number(req.body.preu);
@@ -61,7 +61,7 @@ router.post("/", (req, res) => {
 });
 
 
-//Creem un endpoint per modificar un llibre
+//Creem un endpoint per modificar un mòbil
 router.put("/:id", (req, res) => {
     const data = readData();
     const body = { ...req.body };
@@ -84,14 +84,12 @@ router.put("/:id", (req, res) => {
       ...body,
     };
     writeData(data);
-    // A form arrives as POST (method-override turns it into PUT) -> go back to the list.
-    // Postman sends a real PUT -> JSON. Only ONE response is allowed per request.
     if (req.originalMethod === "POST") return res.redirect(303, "/mobils");
     res.json({ message: "mobil updated successfully" });
 });
 
 
-//Creem un endpoint per eliminar un llibre
+//Creem un endpoint per eliminar un mòbil
 router.delete("/:id", (req, res) => {
     const data = readData();
     const id = parseInt(req.params.id);

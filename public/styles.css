@@ -1,5 +1,5 @@
 /* ==============================
-   1. ESTILOS GENERALES
+   1. ESTILS GENERALS
 ============================== */
 
 * {
@@ -29,7 +29,7 @@ body {
 }
 
 /* ==============================
-   2. CONTENEDORES
+   2. CONTENIDORS
 ============================== */
 
 .container {
@@ -54,7 +54,7 @@ body {
 }
 
 /* ==============================
-   3. TÍTULOS Y TEXTOS
+   3. TÍTOLS Y TEXTOS
 ============================== */
 
 h1,
@@ -71,7 +71,7 @@ p {
 }
 
 /* ==============================
-   4. FORMULARIOS
+   4. FORMULARIS
 ============================== */
 
 form {
@@ -114,7 +114,7 @@ textarea::placeholder {
 }
 
 /* ==============================
-   5. BOTONES
+   5. BOTONS
 ============================== */
 
 button {
@@ -140,7 +140,7 @@ button:active {
 }
 
 /* ==============================
-   6. ENLACES
+   6. ENLLAÇOS
 ============================== */
 
 a {
@@ -160,7 +160,7 @@ a:hover {
 }
 
 /* ==============================
-   7. MENSAJES
+   7. MISSATGES
 ============================== */
 
 form span {
@@ -196,7 +196,7 @@ form span {
 }
 
 /* ==============================
-   9. PÁGINA DE PRODUCTOS
+   9. PÀGINA DE PRODUCTES
 ============================== */
 
 body:has(.productes) {
@@ -261,7 +261,7 @@ body:has(.productes) {
 }
 
 /* ==============================
-   10. PÁGINAS DE ORDINADORS Y MÒBILS
+   10. PÀGINES D'ORDINADORS Y MÒBILS
 ============================== */
 
 .productes-llista {
@@ -382,7 +382,7 @@ body:has(.productes) {
 }
 
 /* ==============================
-   LISTA DE ORDINADORS Y MÒBILS
+   LLISTA D'ORDINADORS I MÒBILS
 ============================== */
 
 .productes-llista {
@@ -421,7 +421,7 @@ body:has(.productes) {
     text-decoration: none;
 }
 
-/* Lista vertical */
+/* Llista vertical */
 
 .productes-llista ul {
     list-style: none;
@@ -430,7 +430,7 @@ body:has(.productes) {
     gap: 15px;
 }
 
-/* Cada producto */
+/* Cada producte */
 
 .productes-llista li {
     display: flex;
@@ -450,7 +450,7 @@ body:has(.productes) {
     border-color: var(--color-primario);
 }
 
-/* Información del producto */
+/* Informació del producte */
 
 .producte-info {
     flex: 1;
@@ -474,7 +474,7 @@ body:has(.productes) {
     color: var(--color-texto);
 }
 
-/* Precio */
+/* Preu */
 
 .productes-llista .preu {
     color: var(--color-exito);
@@ -483,7 +483,7 @@ body:has(.productes) {
     margin-top: 12px;
 }
 
-/* Zona para los botones de la derecha */
+/* Zona per els botons de la dreta */
 
 .producte-accions {
     display: flex;
@@ -516,7 +516,7 @@ body:has(.productes) {
     text-decoration: none;
 }
 
-/* Botón de eliminar, opcional */
+/* Botó d'eliminar */
 
 .producte-accions .btn-eliminar {
     background: #dc2626;
@@ -526,7 +526,7 @@ body:has(.productes) {
     background: #b91c1c;
 }
 
-/* Botón para volver */
+/* Botó per tornar */
 
 .tornar {
     display: flex;
@@ -545,7 +545,7 @@ body:has(.productes) {
     text-decoration: none;
 }
 
-/* Diseño para móviles */
+/* Diseny per mòbils */
 
 @media (max-width: 600px) {
     .productes-llista {
