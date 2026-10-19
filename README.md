@@ -57,7 +57,44 @@ PO1_crud_awt/
 ```
 
 ---
+# EndPoints
 
+## 🔐 Autenticació (`/auth`)
+
+| Mètode | Ruta | Descripció |
+| :--- | :--- | :--- |
+| `GET` | `/auth` | Mostra la pàgina de login i registre |
+| `POST` | `/auth/register` | Registra un usuari nou i crea el token de sessió |
+| `POST` | `/auth/login` | Inicia sessió amb usuari i contrasenya |
+| `GET` | `/auth/protected` | Pàgina protegida que només es mostra si l'usuari està autenticat |
+| `POST` | `/auth/logout` | Tanca la sessió de l'usuari i esborra la cookie |
+
+---
+## 📱 Mòbils (`/mobils`)
+
+| Mètode | Ruta | Descripció |
+| :--- | :--- | :--- |
+| `GET` | `/mobils` | Mostra la vista amb tots els mòbils |
+| `GET` | `/mobils/crear`  | Mostra el formulari per crear un mòbil |
+| `GET` | `/mobils/:id/edit` | Carrega el formulari d'edició d'un mòbil concret |
+| `POST` | `/mobils` | Crea un nou mòbil i redirigeix |
+| `PUT` / `POST` | `/mobils/:id` | Actualitza un mòbil existent |
+| `DELETE` | `/mobils/:id` | Elimina un mòbil |
+
+---
+
+## 💻 Ordinadors (`/ordinadors`)
+
+| Mètode | Ruta | Descripció |
+| :--- | :--- | :--- |
+| `GET` | `/ordinadors` | Mostra la vista amb tots els ordinadors |
+| `GET` | `/ordinadors/crear`  | Mostra el formulari per crear un ordinador |
+| `GET` | `/ordinadors/:id/edit` | Carrega el formulari d'edició d'un ordinador concret |
+| `POST` | `/ordinadors` | Crea un nou ordinador i redirigeix |
+| `PUT` / `POST` | `/ordinadors/:id` | Actualitza un ordinador existent |
+| `DELETE` | `/ordinadors/:id` | Elimina un ordinador |
+
+---
 
 # Captures del CRUD
 
